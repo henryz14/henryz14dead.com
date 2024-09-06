@@ -1,1 +1,97 @@
 # henryz14dead.com
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✰</title>
+    <style>
+        /* Estilo del cuerpo para cubrir toda la ventana */
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden; /* Evita el desplazamiento */
+            transition: background-color 1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #00f; /* Color inicial azul */
+        }
+
+        /* Estilo del botón */
+        .boton-demo {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: #fff; /* Color de fondo inicial */
+            color: #333; /* Color del texto */
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none; /* Elimina el subrayado de enlaces */
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+
+        /* Efecto de cambio de color del botón */
+        @keyframes cambiarColores {
+            0% { background-color: #ff0000; } /* Rojo */
+            25% { background-color: #00ff00; } /* Verde */
+            50% { background-color: #0000ff; } /* Azul */
+            75% { background-color: #ffff00; } /* Amarillo */
+            100% { background-color: #ff0000; } /* Rojo */
+        }
+
+        .boton-demo:hover {
+            animation: cambiarColores 2s infinite; /* Animación de cambio de colores */
+            color: #fff; /* Color del texto cuando el mouse está sobre el botón */
+        }
+
+        /* Estilo del botón para móviles */
+        @media (max-width: 600px) {
+            .boton-demo {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Botón que reproduce el audio al hacer clic -->
+<button class="boton-demo" onclick="reproducirAudio()">Demo</button>
+
+<!-- Elemento de audio con controles -->
+<audio id="audio" src="audio demo.mp3" controls></audio>
+
+<script>
+    // Variables para el cambio de color y el botón
+    const body = document.body;
+    let colorState = 0; // 0 para azul, 1 para verde
+
+    function cambiarColorFondo() {
+        // Alterna entre azul y verde
+        if (colorState === 0) {
+            body.style.backgroundColor = '#00f'; // Azul
+            colorState = 1;
+        } else {
+            body.style.backgroundColor = '#0f0'; // Verde
+            colorState = 0;
+        }
+    }
+
+    // Cambia el color de fondo cada 5 segundos
+    setInterval(cambiarColorFondo, 5000);
+
+    // Función para reproducir el audio
+    function reproducirAudio() {
+        var audio = document.getElementById('audio');
+        audio.play();
+    }
+</script>
+
+</body>
+</html>
